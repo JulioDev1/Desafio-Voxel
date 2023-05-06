@@ -1,11 +1,16 @@
 import { useState } from "react";
+
 import { Email } from "../../assets/Email";
 import { Password } from "../../assets/password";
+import { Error } from "../../assets/Error";
+
 import {
   AutomaticSign,
   Button,
   ButtonGoogle,
   EnterGoogle,
+  ErrorContainer,
+  ErrorMensage,
   FormContainer,
   FormContent,
   Google,
@@ -15,9 +20,26 @@ import {
   Title,
   TitleContainer,
 } from "./styled";
+import { validateEmail } from "../../utils/regex";
 
 export const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
+  const [isError, setError] = useState(false);
+
+  const validate = () => {
+    if (!validateEmail.test(data.email)) {
+      setError(true);
+    } else if (validateEmail.test(data.email)) {
+      setError(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validate();
+    data.email = "";
+    data.password = "";
+  };
 
   const inputQuantityFilled = () => {
     let qtd = 0;
@@ -30,6 +52,7 @@ export const Login = () => {
     }
     return qtd;
   };
+
   const handleChange = (evt) => {
     const { name, value } = evt.target;
 
@@ -41,9 +64,9 @@ export const Login = () => {
   };
 
   console.log(inputQuantityFilled());
-
+  console.log(isError);
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
       <TitleContainer>
         <Title>Bem vindo!</Title>
         <Subtitle>Entre para continuar</Subtitle>
@@ -59,6 +82,14 @@ export const Login = () => {
             name="email"
           />
         </InputContent>
+        {isError ? (
+          <ErrorContainer>
+            <Error />
+            <ErrorMensage>Padrão de E-mail não existente</ErrorMensage>
+          </ErrorContainer>
+        ) : (
+          <></>
+        )}
         <InputContent>
           <Password />
           <Input

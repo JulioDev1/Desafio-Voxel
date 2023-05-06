@@ -1,14 +1,18 @@
 import styled from "styled-components";
 export const Input = styled.input`
-  border: 1.8px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   height: 40px;
   width: 100%;
-  padding-left: 25px;
+  padding-left: 35px;
   font-family: "Work San Regular", sans-serif;
+  transition: border-color 0.3s ease;
+  font-size: 13px;
+
   :focus {
     outline: none;
-    border: 1px solid #ffd600;
+
+    border: 2px solid #ffd600;
     ::-webkit-input-placeholder {
       color: #ffd600;
     }
@@ -17,6 +21,21 @@ export const Input = styled.input`
     font-weight: 500;
   }
 `;
+
+export const ErrorMensage = styled.span`
+  width: 100%;
+  font-size: 12px;
+  color: #ff0000;
+`;
+
+export const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  gap: 7px;
+  width: 100%;
+`;
+
 export const InputContent = styled.div`
   width: 100%;
   display: flex;
@@ -25,7 +44,7 @@ export const InputContent = styled.div`
 
   svg {
     position: absolute;
-    left: 5px;
+    left: 12px;
   }
   gap: 20px;
 `;
@@ -33,7 +52,7 @@ export const FormContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   width: 80%;
 `;
 export const Button = styled.button`
@@ -48,14 +67,15 @@ export const Button = styled.button`
   cursor: pointer;
   :disabled {
     background-color: #ffef98;
+    cursor: default;
   }
 `;
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 350px;
+  max-width: 400px;
   border: 2px solid #cccc;
   gap: 10px;
   width: 80%;
@@ -70,7 +90,7 @@ export const TitleContainer = styled.div`
 `;
 export const Title = styled.h1`
   color: black;
-  font-size: 20px;
+  font-size: 30px;
 `;
 export const EnterGoogle = styled.span`
   font-size: 15px;
