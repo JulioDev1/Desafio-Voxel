@@ -1,16 +1,19 @@
+import { Email } from "../../assets/Email";
+import { Password } from "../../assets/password";
 import {
+  AutomaticSign,
   Button,
+  ButtonGoogle,
+  EnterGoogle,
   FormContainer,
   FormContent,
-  IconEmail,
-  IconPassword,
+  Google,
   Input,
+  InputContent,
   Subtitle,
   Title,
   TitleContainer,
 } from "./styled";
-import { HiOutlineMail } from "react-icons/hi";
-import { MdLockOutline } from "react-icons/md";
 
 export const Login = () => {
   return (
@@ -20,16 +23,23 @@ export const Login = () => {
         <Subtitle>Entre para continuar</Subtitle>
       </TitleContainer>
       <FormContent>
-        <IconEmail>
-          <HiOutlineMail color="#CCCC" />
-        </IconEmail>
-        <IconPassword>
-          <MdLockOutline color="#CCC" />
-        </IconPassword>
-        <Input type="text" placeholder="Email" />
-        <Input type="text" placeholder="Senha" />
-        <Button>Login</Button>
+        <InputContent>
+          <Email />
+          <Input type="text" placeholder="Email" />
+        </InputContent>
+        <InputContent>
+          <Password />
+          <Input type="text" placeholder="Senha" />
+        </InputContent>
       </FormContent>
+
+      <Button>ENTRAR</Button>
+      <AutomaticSign>
+        <EnterGoogle>Entre com</EnterGoogle>
+        <ButtonGoogle>
+          G <Google>Gmail</Google>
+        </ButtonGoogle>
+      </AutomaticSign>
     </FormContainer>
   );
 };
