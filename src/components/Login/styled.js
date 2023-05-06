@@ -46,6 +46,9 @@ export const Button = styled.button`
   font-family: "Work Sans", sans-serif;
   height: 40px;
   cursor: pointer;
+  :disabled {
+    background-color: #ffef98;
+  }
 `;
 export const FormContainer = styled.div`
   display: flex;
