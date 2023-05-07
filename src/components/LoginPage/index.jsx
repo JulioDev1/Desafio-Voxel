@@ -1,13 +1,30 @@
-import { Header } from "../Header";
+// import { Header } from "../Header";
 import { Login } from "../Login";
-import { LoginContainer, PageContainer } from "./styled";
-
+import {
+  Button,
+  HeroContainer,
+  LoginContainer,
+  LoginRight,
+  PageContainer,
+  Text,
+  Title,
+} from "./styled";
+import { Header } from "../Header";
 export const LoginPage = () => {
   return (
     <PageContainer>
       <Header />
       <LoginContainer>
-        <Login />
+        <HeroContainer>
+          <div>
+            <Title>Bem Vindo</Title>
+            <Text>Deseja expandir seu négocio ?</Text>
+            <Button>Cadastre-se</Button>
+          </div>
+        </HeroContainer>
+        <LoginRight>
+          <Login />
+        </LoginRight>
       </LoginContainer>
     </PageContainer>
   );

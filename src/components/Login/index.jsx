@@ -16,6 +16,8 @@ import {
   Google,
   Input,
   InputContent,
+  NotHaveAccount,
+  Register,
   Subtitle,
   Title,
   TitleContainer,
@@ -37,8 +39,6 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validate();
-    data.email = "";
-    data.password = "";
   };
 
   const inputQuantityFilled = () => {
@@ -103,6 +103,9 @@ export const Login = () => {
       </FormContent>
 
       <Button disabled={inputQuantityFilled() !== 100}>ENTRAR</Button>
+      <NotHaveAccount>
+        Não tem conta ?<Register> Registre-se</Register>
+      </NotHaveAccount>
       <AutomaticSign>
         <EnterGoogle>Entre com</EnterGoogle>
         <ButtonGoogle>

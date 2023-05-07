@@ -11,7 +11,6 @@ export const Input = styled.input`
 
   :focus {
     outline: none;
-
     border: 2px solid #ffd600;
     ::-webkit-input-placeholder {
       color: #ffd600;
@@ -45,6 +44,12 @@ export const InputContent = styled.div`
   svg {
     position: absolute;
     left: 12px;
+
+    input:focus + & {
+      path {
+        fill: #ffd600;
+      }
+    }
   }
   gap: 20px;
 `;
@@ -65,6 +70,7 @@ export const Button = styled.button`
   font-family: "Work Sans", sans-serif;
   height: 40px;
   cursor: pointer;
+  transition: 0.2s;
   :disabled {
     background-color: #ffef98;
     cursor: default;
@@ -78,7 +84,7 @@ export const FormContainer = styled.form`
   max-width: 400px;
   border: 2px solid #cccc;
   gap: 10px;
-  width: 80%;
+  width: 90%;
   border-radius: 10px;
   height: 400px;
 `;
@@ -125,4 +131,13 @@ export const ButtonGoogle = styled.button`
 export const Google = styled.span`
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+`;
+export const NotHaveAccount = styled.span`
+  display: none;
+  @media (max-width: 1050px) {
+    display: flex;
+  }
+`;
+export const Register = styled.span`
+  color: #ffd600;
 `;
